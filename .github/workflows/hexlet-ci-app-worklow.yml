@@ -1,0 +1,12 @@
+name: hexlet-ci-app-worklow
+on: [push]
+jobs:
+  setup-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v1
+      - run: npm install
+      - run: make setup
+      - run: make test
+      - run: make lint
